@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
+
+    import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 /**
  * A piano that can be played with the computer keyboard.
@@ -22,9 +23,19 @@ public class Piano extends World
     }
     public void makeKeys()
     {
-        for(int i = 0; i < 12; i++) 
+        int i;
+        int keyWidth;
+        int keyHeight;
+        int spaceAtEdge;     
+        
+        Key key = new Key("","");
+        keyWidth = key.getImage().getWidth();
+        keyHeight = key.getImage().getHeight();  
+        spaceAtEdge = (800 - keyWidth * 12) / 2;
+        
+        for(i = 0; i < 12; i++) 
         {
-            addObject(new Key ("g", "3a.wav"), i * 63 + 54, 140);
+            addObject(new Key ("g", "3a.wav"), keyWidth * i + spaceAtEdge + keyWidth / 2, keyHeight / 2);
         }
     }
 }
