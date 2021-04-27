@@ -28,6 +28,7 @@ public class Piano extends World
         //Create Keys 
         
         makeKeys();
+        showMessage();
     }
     public void makeKeys()
     {
@@ -41,9 +42,28 @@ public class Piano extends World
         keyHeight = key.getImage().getHeight();  
         spaceAtEdge = (800 - keyWidth * 12) / 2;
         
-        for(i = 0; i < 12; i++) 
+        //White Keys
+        
+        for(i = 0; i < whiteKeys.length; i++) 
         {
-            addObject(new Key (whiteKeys[i], whiteNotes[i] + ".wav", "white-key.png", "white-key-down.png"), keyWidth * i + spaceAtEdge + keyWidth / 2, keyHeight / 2);
+            key = new Key (whiteKeys[i], whiteNotes[i] + ".wav", "white-key.png", "white-key-down.png");
+            addObject(key, 54 + i * 63, 140);
         }
+        
+        //Black Keys
+        
+        for(int x = 0; x < whiteKeys.length - 1; x++) {
+            
+            if(!blackKeys[x].equals("")){
+             key = new Key(blackKeys[x], blackNotes[x]+".wav", "black-key.png", "black-key-down.png");
+             addObject(key, 85 + (x * 63), 86);
+            }
+        }
+        
+    }
+    public void showMessage() {
+        GreenfootImage bg = getBackground();
+        bg.setColor(Color.WHITE);
+        bg.drawString("Click Run and then use your keyboard to play", 25, 320);
     }
 }
