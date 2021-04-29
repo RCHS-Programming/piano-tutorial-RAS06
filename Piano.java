@@ -37,16 +37,13 @@ public class Piano extends World
         int keyHeight;
         int spaceAtEdge;     
         
-        Key key = new Key("","", "", "");
-        keyWidth = key.getImage().getWidth();
-        keyHeight = key.getImage().getHeight();  
-        spaceAtEdge = (800 - keyWidth * 12) / 2;
+     
         
         //White Keys
         
         for(i = 0; i < whiteKeys.length; i++) 
         {
-            key = new Key (whiteKeys[i], whiteNotes[i] + ".wav", "white-key.png", "white-key-down.png");
+            Key key = new Key (whiteKeys[i], whiteNotes[i] + ".wav", "white-key.png", "white-key-down.png");
             addObject(key, 54 + i * 63, 140);
         }
         
@@ -55,7 +52,7 @@ public class Piano extends World
         for(int x = 0; x < whiteKeys.length - 1; x++) {
             
             if(!blackKeys[x].equals("")){
-             key = new Key(blackKeys[x], blackNotes[x]+".wav", "black-key.png", "black-key-down.png");
+             Key key = new Key(blackKeys[x], blackNotes[x]+".wav", "black-key.png", "black-key-down.png");
              addObject(key, 85 + (x * 63), 86);
             }
         }
